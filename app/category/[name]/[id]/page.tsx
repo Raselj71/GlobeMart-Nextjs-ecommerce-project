@@ -1,12 +1,13 @@
+import React from "react";
 import Item from "@/components/Item";
-import { getallProducts } from "@/config/getallproducts";
-import Sidebar from "./layoutDesign/Sidebar";
+import { getCategoryProducts } from "@/config/getCategoryItem";
+import Sidebar from "../../../layoutDesign/Sidebar";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
-export default async function Page({ searchParams }: any) {
+async function page({ params, searchParams }:any ) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
   const limit = 8; // Number of products per page
-  const { products, total } = await getallProducts(currentPage, limit);
+  const { products, total } = await getCategoryProducts(0,8,params.id);
 
   const totalPages = Math.ceil(total / limit);
 
@@ -15,6 +16,7 @@ export default async function Page({ searchParams }: any) {
       <Sidebar />
 
       <div>
+        <div className="px-6 font-bold text-2xl text-gray-800"> Category: {params.name}</div>
         <div className="flex justify-center">
           <section className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-4 mx-4">
             {products.map((product: any) => (
@@ -31,14 +33,14 @@ export default async function Page({ searchParams }: any) {
 
         <div className=" w-full flex justify-center my-4 gap-4">
           {currentPage > 1 && (
-            <a href={`/?page=${currentPage - 1}`}>
+            <a href={`/category/${params.name}/${params.id}/?page=${currentPage - 1}`}>
               <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex">
                 <GrPrevious /> Previous
               </button>
             </a>
           )}
           {currentPage < totalPages && (
-            <a href={`/?page=${currentPage + 1}`}>
+            <a href={`/category/${params.name}/${params.id}/?page=${currentPage + 1}`}>
               <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex">
                 Next
                 <GrNext />
@@ -50,3 +52,5 @@ export default async function Page({ searchParams }: any) {
     </main>
   );
 }
+
+export default page;
