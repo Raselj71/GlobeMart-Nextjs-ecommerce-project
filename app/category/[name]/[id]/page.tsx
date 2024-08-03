@@ -6,8 +6,9 @@ import { GrNext, GrPrevious } from "react-icons/gr";
 
 async function page({ params, searchParams }:any ) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
-  const limit = 8; // Number of products per page
-  const { products, total } = await getCategoryProducts(0,8,params.id);
+  const limit = 8;
+  const { products, total } = await getCategoryProducts(currentPage,limit,params.id);
+  console.log(total)
 
   const totalPages = Math.ceil(total / limit);
 
@@ -16,7 +17,7 @@ async function page({ params, searchParams }:any ) {
       <Sidebar />
 
       <div>
-        <div className="px-6 font-bold text-2xl text-gray-800"> Category: {params.name}</div>
+        <div className="mx-6 font-bold text-2xl text-gray-800 border-l-[5px] mb-2 px-2 border-mainColoer"> Category: {params.name}</div>
         <div className="flex justify-center">
           <section className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-4 mx-4">
             {products.map((product: any) => (

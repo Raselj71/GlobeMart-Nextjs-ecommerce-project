@@ -3,9 +3,9 @@ import { User } from "@/models/usermodel";
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import jwt from 'jsonwebtoken';
-import { connectdb } from "@/config/db";
 
-connectdb()
+
+
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();

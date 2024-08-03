@@ -9,11 +9,17 @@ type propstype = {
   id: Number;
 };
 function Item({ title, price, imageUrl, id }: propstype) {
-  
   return (
     <div className=" border-2 w-[350px] bg-slate-200 drop-shadow-lg">
-      <div className="w-[347px] h-[350px]">
-        <img className="" src={imageUrl} alt={title} />
+      <div className="w-auto h-auto">
+        <Image
+          className=""
+          src={imageUrl}
+          width={347}
+          height={350}
+          alt={title}
+         
+        />
       </div>
       <div className="px-4 py-2 text-lg">
         <Link href={`/product/${title}/${id}`}>

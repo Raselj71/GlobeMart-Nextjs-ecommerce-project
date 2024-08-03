@@ -3,6 +3,7 @@ import { getallProducts } from "@/config/getallproducts";
 import Sidebar from "./layoutDesign/Sidebar";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
+
 export default async function Page({ searchParams }: any) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
   const limit = 8; // Number of products per page
@@ -32,14 +33,14 @@ export default async function Page({ searchParams }: any) {
         <div className=" w-full flex justify-center my-4 gap-4">
           {currentPage > 1 && (
             <a href={`/?page=${currentPage - 1}`}>
-              <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex">
+              <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex transition-all duration-300 ease-in">
                 <GrPrevious /> Previous
               </button>
             </a>
           )}
           {currentPage < totalPages && (
             <a href={`/?page=${currentPage + 1}`}>
-              <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex">
+              <button className="bg-mainColoer items-center rounded-sm border-1 border-white hover:bg-black text-white px-4 font-semibold py-1 flex transition-all duration-300 ease-in">
                 Next
                 <GrNext />
               </button>
