@@ -1,5 +1,5 @@
 import React from "react";
-import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import { LuPlus, LuMinus } from "react-icons/lu";
 import { CgClose } from "react-icons/cg";
 import { useAppDispatch } from "@/state/hooks";
 import {
@@ -34,36 +34,34 @@ function CartItem({ id, title, price, image, quantity }: propstype) {
   return (
     <div className="border-b">
       <div className="flex items-center  rounded-sm w-full py-2">
-        <div className="">
+        <div className="size-20">
           <img className="size-20 rounded-lg" src={image} alt={title} />
         </div>
-        <div className="w-[90%] flex flex-col">
+        <div className="w-[75%] flex flex-col">
           <p className="text-nowrap overflow-hidden text-ellipsis px-2 text-slate-700">
             {title}
           </p>
           <div className="flex items-center justify-between mt-3 mx-10 px-4 ">
-            <div className="flex flex  items-center justify-center">
+            <div className="flex flex  items-center justify-center gap-2 ">
               <button
-                className="text-2xl text-slate-700  hover:bg-mainColoer hover:text-white"
+                className=" transition-all duration-300 ease-in text-gray-500 bg-gray-300 p-[2px] hover:bg-mainColoer hover:text-white"
                 onClick={handleDecrement}
               >
-                <TiArrowSortedUp className="-rotate-90 text-2xl" />
+                <LuMinus className="" />
               </button>
               <span>{quantity}</span>
               <button
-                className="text-2xl text-slate-700  hover:bg-mainColoer hover:text-white"
+                className=" transition-all duration-300 ease-in text-gray-500 bg-gray-300 p-[2px] hover:bg-mainColoer hover:text-white"
                 onClick={handleIncrement}
               >
-                <TiArrowSortedDown className="-rotate-90 text-2xl" />
+                <LuPlus className="" />
               </button>
             </div>
-            <p className="text-lg text-slate-900 font-extralight">
-              $ {total}.00
-            </p>
+            <p className="text-lg text-slate-900 ">$ {total}.00</p>
           </div>
         </div>
         <button
-          className="text-xl text-slate-700  hover:bg-mainColoer hover:text-white transition-all duration-300 ease-out"
+          className="  text-xl text-slate-700  hover:bg-mainColoer hover:text-white transition-all duration-300 ease-out"
           onClick={handleDelete}
         >
           <CgClose />

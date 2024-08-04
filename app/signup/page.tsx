@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { httpaxios } from "@/helper/httphelper";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AxiosError } from "axios";
+
 import Modals from "@/components/Modals";
 import Loading from "@/components/Loading";
-import { POST } from "../api/authorize/login/route";
+
 
 export default function Page() {
   const router = useRouter();
@@ -79,20 +79,23 @@ export default function Page() {
 
         <div className="text-red-500 text-lg text-center font-bold">{err}</div>
         <div className="mt-10">
-          <label className="font-semibold text-slate-700" htmlFor="name">
-            Full Name
-          </label>
-          <br />
-          <input
-            className="w-full bg-slate-200 h-10 px-4 rounded-sm"
-            required
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Ex: Rasel"
-            value={user.name}
-            onChange={handleInputChange}
-          />
+          <div>
+            <label className="font-semibold text-slate-700" htmlFor="name">
+              Full Name
+            </label>
+            <br />
+            <input
+              className="w-full bg-slate-200 h-10 px-4 rounded-sm"
+              required
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Ex: Rasel"
+              value={user.name}
+              onChange={handleInputChange}
+            />
+          </div>
+          
         </div>
 
         <div className="mt-4">
@@ -131,7 +134,7 @@ export default function Page() {
 
         <button
           className="w-full bg-gray-800 text-white mt-4 text-xl rounded-sm h-10"
-          type='submit'
+          type="submit"
         >
           Create Account
         </button>

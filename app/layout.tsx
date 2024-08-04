@@ -31,7 +31,7 @@ export default async function RootLayout({
              <SessionProviderContext>
             <Header />
 
-            <div className="flex mx-4 mt-[2rem] md:mt-[1rem] lg:mt-[1rem] ">
+            <div className="flex mx-4 mt-[8rem] md:mt-[6rem] lg:mt-[6rem] ">
               {children}
             </div>
             <CartLayout/>

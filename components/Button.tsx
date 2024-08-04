@@ -2,7 +2,7 @@
 import { add } from "@/state/features/cart/cartSlice";
 import { useAppDispatch } from "@/state/hooks";
 import React from "react";
-import { useDispatch } from "react-redux";
+
 
 interface propstype {
   id: Number;
@@ -20,7 +20,7 @@ function Button({ id, title, price, image }: propstype) {
     quantity: 1,
   };
   const handleClick = () => {
-    console.log("button is clicked");
+   
     dispatch(add(data));
   };
 
