@@ -17,7 +17,7 @@ function Account() {
   const { data: session } = useSession();
 
   if (session) {
-    console.log(session);
+   
     return (
       <div className="relative inline-block text-left">
         <button
@@ -25,7 +25,7 @@ function Account() {
           className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full focus:outline-none"
         >
           <img
-            src="/images/profile-icon.png"
+            src=""
             alt="Profile Icon"
             className="w-full h-full rounded-full"
           />

@@ -27,8 +27,7 @@ function CartLayout() {
   };
 
   const items = useAppSelector((state) => state.cart.items);
-  console.log(items.length);
-  console.log(typeof items.length);
+
  
 
   return (

@@ -6,8 +6,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function Cart() {
   const items = useAppSelector((state) => state.cart.items);
-  const isMenu = useAppSelector((state) => state.menu.isOpen);
-  console.log(isMenu);
+  
+ 
   const dispatch = useAppDispatch();
   const handleClick = () => {
     dispatch(ChangeMenu());
