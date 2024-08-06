@@ -97,7 +97,7 @@ export default function Page() {
           Login
         </button>
         <p className="text-slate-700 mt-4 font-medium">
-          Don't have an Account?
+          Dont have an Account?
           <span
             className="underline cursor-pointer"
             onClick={() => {
