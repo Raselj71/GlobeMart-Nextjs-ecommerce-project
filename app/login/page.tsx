@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import Modals from "@/components/Modals";
 import Loading from "@/components/Loading";
 import { signIn, } from "next-auth/react";
@@ -97,8 +96,8 @@ export default function Page() {
         >
           Login
         </button>
-        <p className=" text-slate-700 mt-4 font-medium">
-          Don't have an Account?{" "}
+        <p className="text-slate-700 mt-4 font-medium">
+          Don't have an Account?
           <span
             className="underline cursor-pointer"
             onClick={() => {
@@ -108,8 +107,8 @@ export default function Page() {
             Signup
           </span>
         </p>
-        <p className=" text-slate-700 mt-4 font-medium">
-          {" "}
+        <p className="text-slate-700 mt-4 font-medium">
+         
           <span
             className="underline cursor-pointer"
             onClick={() => {

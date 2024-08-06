@@ -1,6 +1,8 @@
 import getallCategories from "@/config/getallcategory";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 
 async function Sidebar() {
   const categories = await getallCategories();
@@ -17,7 +19,9 @@ async function Sidebar() {
         >
           <div className=" mx-4 bg-slate-200 rounded-md hover:bg-gray-300">
             <div className="flex items-center">
-              <img
+              <Image
+              width={64}
+              height={64}
                 className="size-16"
                 src={category.image}
                 alt={category.name}

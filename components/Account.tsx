@@ -5,6 +5,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Account() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +25,11 @@ function Account() {
           onClick={toggleMenu}
           className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full focus:outline-none"
         >
-          <img
+          <Image
             src=""
             alt="Profile Icon"
+            width={40}
+            height={40}
             className="w-full h-full rounded-full"
           />
         </button>

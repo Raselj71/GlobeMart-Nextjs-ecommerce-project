@@ -9,7 +9,7 @@ export const authOptions = {
   },
   session: {
     strategy: "jwt" as const,
-    maxAge:2*60 
+    maxAge:2*60*60 
   },
   secret: process.env.NEXTAUTH_SECRET,
 
