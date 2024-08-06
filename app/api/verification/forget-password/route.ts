@@ -1,9 +1,9 @@
-import { connectdb } from '@/config/db'
+
 import { sendmail } from '@/config/email'
 import { User } from '@/models/usermodel'
 import jwt from 'jsonwebtoken'
 import { NextResponse } from 'next/server'
-connectdb()
+
 
 export async function POST(request:Request){
 
@@ -18,8 +18,8 @@ export async function POST(request:Request){
      )
     }
 
-    const token=jwt.sign({id:user.id,email:user.email},process.env.JWT_KEY||"rasel",{
-        expiresIn:'5m'
+    const token=jwt.sign({id:user.id,email:user.email},process.env.JWT_KEY!,{
+        expiresIn:'50m'
     })
      
 

@@ -1,4 +1,4 @@
-import jwt, { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken'
+import jwt, { JsonWebTokenError, TokenExpiredError , JwtPayload  } from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import { NextResponse } from 'next/server';
 import { User } from '@/models/usermodel';
@@ -11,7 +11,8 @@ export async function POST(request: Request){
         
 
 
-         const decode=await jwt.verify(token.token,process.env.JWT_KEY ||"rasel");
+         const decode=await jwt.verify(token.token,process.env.JWT_KEY!) as JwtPayload;
+         console.log(decode)
          const id=decode.id ;
 
          const hashpassword=await bcrypt.hash(password, 10);

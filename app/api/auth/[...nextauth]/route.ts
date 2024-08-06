@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "@/models/usermodel";
 import bcrypt from "bcrypt";
 
-export const authOptions = {
+ const authOptions = {
   pages: {
     signIn: "/login",
   },
@@ -20,7 +20,7 @@ export const authOptions = {
         token.id = user._id;
         token.name = user.name;
         token.email = user.email;
-        token.password = user.password; // Add other fields you want to include
+        
       }
       return token;
     },
@@ -29,7 +29,7 @@ export const authOptions = {
         session.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;
-        session.user.password=token.password
+        
         
       }
       return session;
@@ -80,5 +80,5 @@ export const authOptions = {
   
 };
 
-export const handler = NextAuth(authOptions);
+ const handler = NextAuth(authOptions);
 export { handler as POST, handler as GET };
