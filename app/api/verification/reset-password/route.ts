@@ -2,7 +2,9 @@ import jwt, { JsonWebTokenError, TokenExpiredError , JwtPayload  } from 'jsonweb
 import bcrypt from 'bcrypt'
 import { NextResponse } from 'next/server';
 import { User } from '@/models/usermodel';
+import { connectdb } from '@/config/db';
 export async function POST(request: Request){
+    const conn=await connectdb()
 
     try {
         const salt:String="10"

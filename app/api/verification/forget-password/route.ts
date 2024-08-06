@@ -1,4 +1,5 @@
 
+import { connectdb } from '@/config/db'
 import { sendmail } from '@/config/email'
 import { User } from '@/models/usermodel'
 import jwt from 'jsonwebtoken'
@@ -6,6 +7,7 @@ import { NextResponse } from 'next/server'
 
 
 export async function POST(request:Request){
+   const conn=await connectdb()
 
    try {
         const{email}= await request.json()

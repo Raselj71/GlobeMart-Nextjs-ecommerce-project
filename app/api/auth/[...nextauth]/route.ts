@@ -2,6 +2,8 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "@/models/usermodel";
 import bcrypt from "bcrypt";
+import { connectdb } from "@/config/db";
+
 
  const authOptions = {
   pages: {
@@ -46,6 +48,7 @@ import bcrypt from "bcrypt";
         password: {},
       },
       async authorize(credentials, req) {
+        const conn=await connectdb()
         if (credentials === null) {
           return null;
         } else {
