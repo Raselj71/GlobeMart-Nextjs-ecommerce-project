@@ -14,7 +14,7 @@ export default function Page(){
     const router=useRouter()
     
 
-    const [user, setUser]=useState<{email:String, }>({
+    const [user, setUser]=useState<{email:string, }>({
         email:"",
         
     })
@@ -53,7 +53,7 @@ export default function Page(){
             console.log(error)
              Swal.fire({
                     title:"Failed to send email",
-                    text:error.response.data.message,
+                  
                     icon:"error"
                 })
         }finally{
@@ -78,7 +78,7 @@ export default function Page(){
 
                 
 
-                 <button className="w-full bg-gray-800 text-white mt-4 text-xl rounded-sm h-10" type="sumbit">Reset Password</button>
+                 <button className="w-full bg-gray-800 text-white mt-4 text-xl rounded-sm h-10" type='submit'>Reset Password</button>
                       
                       
               </form>

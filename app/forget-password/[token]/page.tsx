@@ -34,7 +34,13 @@ export default function Page({ params }: { params:String }){
        
               try {
           
-            const response=await httpaxios.post('/api/verification/reset-password',data)
+             const response = await fetch("/api/verification/reset-password", {
+               method: "POST",
+               headers: {
+                 "content-type": "application/json",
+               },
+               body: JSON.stringify(data),
+             });
            
             if(response.status===200){
                 Swal.fire({
@@ -53,7 +59,7 @@ export default function Page({ params }: { params:String }){
             console.log(error)
              Swal.fire({
                     title:"Failed to change password",
-                    text:error.response.data.message,
+                    text:"try again",
                     icon:"error"
                 })
         }finally{
@@ -79,7 +85,7 @@ export default function Page({ params }: { params:String }){
 
                 
 
-                 <button className="w-full bg-gray-800 text-white mt-4 text-xl rounded-sm h-10" type="sumbit">Set new Password</button>
+                 <button className="w-full bg-gray-800 text-white mt-4 text-xl rounded-sm h-10" type='submit'>Set new Password</button>
                       
                       
               </form>

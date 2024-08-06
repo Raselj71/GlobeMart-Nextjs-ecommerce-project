@@ -74,12 +74,12 @@ function CartLayout() {
 
         <div className="flex justify-center items-center mt-2">
           <button
-           disabled={items.length===0?true:false}
+            disabled={items.length === 0 ? true : false}
             onClick={() => {
               router.push("/checkout");
               dispatch(ChangeMenu());
             }}
-            className="font-bold bg-mainColoer text-white text-lg font-mono  px-10 py-1 rounded-full hover:bg-black hover:text-white transition-all duration-300 ease-in"
+            className={`font-bold bg-mainColoer text-white text-lg font-mono  px-10 py-1 rounded-full hover:bg-black hover:text-white transition-all duration-300 ease-in ${items.length===0?"cursor-not-allowed bg-slate-300 hover:bg-slate-300":""}`}
           >
             CHECKOUT
           </button>

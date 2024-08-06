@@ -2,7 +2,8 @@ import Item from "@/components/Item";
 import { getallProducts } from "@/config/getallproducts";
 import Sidebar from "./layoutDesign/Sidebar";
 import { GrNext, GrPrevious } from "react-icons/gr";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default async function Page({ searchParams }: any) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
@@ -14,6 +15,7 @@ export default async function Page({ searchParams }: any) {
   return (
     <main className="flex flex-col justify-center  lg:flex-row w-full ">
       <Sidebar />
+      <ToastContainer />
 
       <div>
         <div className="flex justify-center">
