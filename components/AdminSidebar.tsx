@@ -1,0 +1,26 @@
+import getallCategories from "@/config/getallcategory";
+import { IoBagAdd } from "react-icons/io5";
+
+import React from "react";
+
+async function Sidebar() {
+  const categories = await getallCategories();
+
+  return (
+    <div className="flex w-full lg:w-[20%] flex-col gap-1 bg-mainColoer mb-10 py-10 h-fit rounded-sm">
+      <h2 className="text-2xl text-white text-center mt-4 font-bold">
+        Menu Item
+      </h2>
+      <div className=" mx-4 bg-slate-200 rounded-md hover:bg-gray-300">
+        <div className="flex items-center">
+            <IoBagAdd className="size-16 m-1 text-gray-600"/>
+          <p className="px-4 font-semibold overflow-hidden text-ellipsis whitespace-nowrap">
+            Add Product
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Sidebar;

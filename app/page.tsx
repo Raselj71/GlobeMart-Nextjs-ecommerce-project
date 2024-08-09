@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default async function Page({ searchParams }: any) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
-  const limit = 8; // Number of products per page
+  const limit = 8; 
   const { products, total } = await getallProducts(currentPage, limit);
 
   const totalPages = Math.ceil(total / limit);

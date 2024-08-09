@@ -1,10 +1,7 @@
 "use client";
-import { headers } from "next/headers";
+
 import React from "react";
-import Link from "next/link";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa";
-import { IoMenu } from "react-icons/io5";
+
 import { Bebas_Neue } from "next/font/google";
 import { useRouter } from "next/navigation";
 import Cart from "@/components/Cart";
@@ -47,7 +44,7 @@ function Header() {
                 </button>
               </form>
             </div>
-            <div className="flex space-x-3 lg:space-x-6 items-center">
+            <div className="flex space-x-6 lg:space-x-6 items-center">
               <Cart/>
              <Account/>
             </div>

@@ -22,23 +22,25 @@ function Page() {
   const [address, setAdress] = useState("");
   const items = useAppSelector((state) => state.cart.items);
   const totalPrice = useAppSelector((state) => state.cart.total);
-  const[loading , setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
-     setLoading(true);
-     e.preventDefault();
+    setLoading(true);
+    e.preventDefault();
 
     try {
-    
       const stripe = await stripePromise;
-      if(!stripe){
-          throw new Error("Stripe not loaded")
+
+      if (!stripe) {
+        throw new Error("Stripe not loaded");
       }
 
       const res = await fetch("/api/checkout_sessions", {
         method: "POST",
         body: JSON.stringify({
+          address,
           items,
+          totalPrice,
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -48,12 +50,30 @@ function Page() {
       const { error } = await stripe.redirectToCheckout({ sessionId });
 
       if (error) {
-        router.push("/error");
+        return router.push("/dashbord/failed");
       }
+
+      const updateDatabase = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/paymentconfirm`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            sessionId,
+          }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (!updateDatabase.ok) {
+        throw new Error(
+          `Failed to update payment status: ${updateDatabase.statusText}`
+        );
+      }
+
+      console.log("Payment confirmed:", updateDatabase);
     } catch (err) {
       console.log(err);
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 

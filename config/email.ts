@@ -4,21 +4,16 @@ const nodemailer=require("nodemailer")
 export async function  sendmail(to:string,subject:String, htmltemp:string){
 
 const transporter = nodemailer.createTransport({
-  host: "mail.techtutorpro.com",
-  port: 465,
-  secure: true,
+  service: 'gmail',
   auth: {
-    user: "contact@techtutorpro.com",
-    pass: "RAIHANj10205060?",
-  },
-  tls: {
-    rejectUnauthorized: false, // Disable certificate validation
-  },
+    user: 'alexkrein9@gmail.com',
+    pass: 'izir lvtl vkvu wfdr'
+  }
 });
 
 
 let mailOptions = {
-  from: 'contact@techtutorpro.com',
+  from: 'alexkrein9@gmail.com',
   to: to,
   subject: subject,
   html:htmltemp,

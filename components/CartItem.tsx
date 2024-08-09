@@ -7,7 +7,7 @@ import {
   incrementQuantity,
   remove,
 } from "@/state/features/cart/cartSlice";
-import Image from "next/image";
+
 
 export interface propstype {
   id: Number | any;
@@ -36,7 +36,7 @@ function CartItem({ id, title, price, image, quantity }: propstype) {
     <div className="border-b">
       <div className="flex items-center  rounded-sm w-full py-2">
         <div className="size-20">
-          <Image className="size-20 rounded-lg" src={image} alt={title} width={80} height={80} />
+          <img className="size-20 rounded-lg" src={image} alt={title} width={80} height={80} />
         </div>
         <div className="w-[75%] flex flex-col">
           <p className="text-nowrap overflow-hidden text-ellipsis px-2 text-slate-700">

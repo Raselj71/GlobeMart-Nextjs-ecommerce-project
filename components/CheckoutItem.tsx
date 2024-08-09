@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image';
+
 
 interface propstype{
     title:string;
@@ -14,7 +14,7 @@ function CheckoutItem({title,image,price,quantity}:propstype) {
     <div className="border-b">
       <div className="flex items-center  rounded-sm w-full py-2">
         <div className="size-20">
-          <Image className="size-20 rounded-lg" width={80} height={80} src={image} alt={title} />
+          <img className="size-20 rounded-lg"  src={image} alt={title} />
         </div>
         <div className="w-[75%] flex flex-col">
           <p className="text-nowrap overflow-hidden text-ellipsis px-2 text-slate-700">

@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import React from "react";
 import Button from "./Button";
 import Link from "next/link";
@@ -12,11 +12,10 @@ function Item({ title, price, imageUrl, id }: propstype) {
   return (
     <div className=" border-2 w-[350px] bg-slate-200 drop-shadow-lg">
       <div className="w-auto h-auto">
-        <Image
-          className=""
+        <img
+          className="w-[347px] h-[350px]"
           src={imageUrl}
-          width={347}
-          height={350}
+         
           alt={title}
          
         />

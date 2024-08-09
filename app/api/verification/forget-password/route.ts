@@ -77,7 +77,7 @@ const template=`<!DOCTYPE html>
   <div class="container">
     <h1>Reset Your password</h1>
     <p>For resetting your password. Please click reset button! , please reset your password by clicking the button below:</p>
-    <a href="${process.env.BASE_URL}/forget-password/${token}" class="button">Reset Password</a>
+    <a href="${process.env.NEXTAUTH_URL}/forget-password/${token}" class="button">Reset Password</a>
     <p>If you did not create an account with Globemart, you can safely ignore this email.</p>
     <p>Thank you,<br>Globemart Team</p>
   </div>

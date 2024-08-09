@@ -1,6 +1,6 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { ChangeMenu } from "@/state/features/Menu/MenuSlice";
 import CardItem from "@/components/CartItem";
@@ -15,6 +15,7 @@ interface cartprops {
 }
 
 function CartLayout() {
+
   const router = useRouter();
   const isOpen = useAppSelector((state) => state.menu.isOpen);
   const [isDisable, setDisable] = useState(false);
@@ -27,8 +28,6 @@ function CartLayout() {
   };
 
   const items = useAppSelector((state) => state.cart.items);
-
- 
 
   return (
     <div
@@ -79,7 +78,11 @@ function CartLayout() {
               router.push("/checkout");
               dispatch(ChangeMenu());
             }}
-            className={`font-bold bg-mainColoer text-white text-lg font-mono  px-10 py-1 rounded-full hover:bg-black hover:text-white transition-all duration-300 ease-in ${items.length===0?"cursor-not-allowed bg-slate-300 hover:bg-slate-300":""}`}
+            className={`font-bold bg-mainColoer text-white text-lg font-mono  px-10 py-1 rounded-full hover:bg-black hover:text-white transition-all duration-300 ease-in ${
+              items.length === 0
+                ? "cursor-not-allowed bg-slate-300 hover:bg-slate-300"
+                : ""
+            }`}
           >
             CHECKOUT
           </button>

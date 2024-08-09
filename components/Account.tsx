@@ -5,7 +5,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 function Account() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,21 +16,20 @@ function Account() {
   const router = useRouter();
 
   const { data: session } = useSession();
+ 
 
   if (session) {
-   
+    
     return (
       <div className="relative inline-block text-left">
         <button
           onClick={toggleMenu}
           className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full focus:outline-none"
         >
-          <Image
+          <img
             src=""
             alt="Profile Icon"
-            width={40}
-            height={40}
-            className="w-full h-full rounded-full"
+            className="w-[40px] h-[40px] rounded-full"
           />
         </button>
         {isOpen && (
@@ -46,6 +45,9 @@ function Account() {
                 </div>
               </div>
               <Link
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
                 href="/dashbord/profile"
               >
@@ -53,6 +55,9 @@ function Account() {
               </Link>
 
               <Link
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
                 href="/dashbord/orders"
               >

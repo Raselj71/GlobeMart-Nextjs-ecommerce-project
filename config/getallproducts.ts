@@ -5,7 +5,7 @@ export async function getallProducts(page = 1, limit = 8) {
   }
   const products = await response.json();
 
-  const countResponse = await fetch("https://api.escuelajs.co/api/v1/products");
+  const countResponse = await fetch("https://api.escuelajs.co/api/v1/products?");
   if (!countResponse.ok) {
     throw new Error("Failed to load data");
   }

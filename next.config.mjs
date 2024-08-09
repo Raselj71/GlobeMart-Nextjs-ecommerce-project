@@ -4,15 +4,33 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.imgur.com", 
+        hostname: "i.imgur.com",
         port: "",
-        pathname: "/**", 
+        pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "contoh.com", 
+        hostname: "contoh.com",
         port: "",
-        pathname: "/**", 
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placeimg.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.psicologos.com.co",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "academy-of-capital.ru",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
