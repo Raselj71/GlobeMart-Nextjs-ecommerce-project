@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { OrderModel } from "@/models/OrderModels";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/helper/authOption";
-
+export const dynamic = "force-dynamic"
 export async function GET(req: NextRequest): Promise<NextResponse> {
   console.log('incoming request')
   try {
