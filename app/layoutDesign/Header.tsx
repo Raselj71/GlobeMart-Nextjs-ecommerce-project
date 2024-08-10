@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 
 import { Bebas_Neue } from "next/font/google";
-import { redirect, useRouter } from "next/navigation";
+useRouter;
 import Cart from "@/components/Cart";
 import Account from "@/components/Account";
+import { useRouter } from "next/navigation";
 
 const bebas = Bebas_Neue({
   style: "normal",
@@ -20,7 +21,7 @@ function Header() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(search);
-    
+     router.push(`/search?query=${search}`);
   };
 
   return (
@@ -60,8 +61,11 @@ function Header() {
             </div>
           </div>
           <div className="w-full mt-4 md:hidden">
-            <form className="flex">
+            <form onSubmit={handleSubmit} className="flex">
               <input
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
                 type="search"
                 placeholder="Search in Globemart"
                 className="flex-grow h-10 bg-slate-200 outline-none px-4 rounded-l-md "

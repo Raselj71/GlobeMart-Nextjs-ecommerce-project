@@ -9,7 +9,7 @@ async function page({ params, searchParams }:any ) {
   const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
   const limit = 8;
   const { products, total } = await getCategoryProducts(currentPage,limit,params.id);
-  console.log(total)
+  
 
   const totalPages = Math.ceil(total / limit);
 
