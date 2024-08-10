@@ -1,9 +1,9 @@
 export default async function getallCategories(){
-      const response= await fetch("https://api.escuelajs.co/api/v1/categories");
+      const response= await fetch(`${process.env.NEXTAUTH_URL}/api/product/category`);
 
       if(!response.ok){
         throw new Error("Category can't fetch")
       }
-
-      return response.json()
+      const item=await response.json()
+      return item.data;
 }

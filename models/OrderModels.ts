@@ -50,11 +50,7 @@ const OrderSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     required:true,
-    default: ()=>{
-      const now =new Date()
-       now.setUTCHours(0, 0, 0, 0);
-      return now;
-    }
+    default:Date.now
   },
 });
 

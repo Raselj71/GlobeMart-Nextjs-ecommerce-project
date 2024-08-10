@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { Bebas_Neue } from "next/font/google";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import Cart from "@/components/Cart";
 import Account from "@/components/Account";
 
@@ -15,6 +15,13 @@ const bebas = Bebas_Neue({
 
 function Header() {
   const router = useRouter();
+  const [search, setSearch] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(search);
+    
+  };
 
   return (
     <header>
@@ -30,8 +37,11 @@ function Header() {
               Globe<span>Mart</span>
             </h2>
             <div className="w-full mt-4 hidden md:block md:mt-0 md:w-auto ">
-              <form className=" flex lg:w-[50rem]">
+              <form onSubmit={handleSubmit} className=" flex lg:w-[50rem]">
                 <input
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                   type="search"
                   placeholder="Search in Globemart"
                   className="lg:w-full flex-grow h-10 md:h-12 bg-slate-200 outline-none px-4 rounded-l-md "
@@ -45,8 +55,8 @@ function Header() {
               </form>
             </div>
             <div className="flex space-x-6 lg:space-x-6 items-center">
-              <Cart/>
-             <Account/>
+              <Cart />
+              <Account />
             </div>
           </div>
           <div className="w-full mt-4 md:hidden">

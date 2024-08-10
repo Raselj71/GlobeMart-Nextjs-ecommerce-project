@@ -48,8 +48,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         
       },
       mode: "payment",
-      success_url: `${process.env.BASE_URL}dashbord/success`,
-      cancel_url: `${process.env.BASE_URL}dashbord/failed`,
+      success_url: `${process.env.NEXTAUTH_URL}/dashbord/success`,
+      cancel_url: `${process.env.NEXTAUTH_URL}/dashbord/failed`,
     });
 
     const sessionId = session.id;
