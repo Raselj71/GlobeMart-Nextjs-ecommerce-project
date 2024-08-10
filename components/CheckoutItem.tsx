@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+export const dynamic = "force-dynamic";
 interface propstype{
     title:string;
     image:string;
